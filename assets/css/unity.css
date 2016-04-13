@@ -1973,6 +1973,7 @@
 
 .blue-grey.lighten-4 {
     background-color: #cfd8dc !important;
+
 }
 
 .blue-grey-text.text-lighten-4 {
@@ -2057,6 +2058,8 @@
 
 .grey-text.text-lighten-4 {
     color: #f5f5f5 !important;
+     font-family: quicksand;
+     font-weight: 200;
 }
 
 .grey.lighten-3 {
@@ -2065,6 +2068,8 @@
 
 .grey-text.text-lighten-3 {
     color: #eeeeee !important;
+     font-family: quicksand;
+     font-weight: 200;
 }
 
 .grey.lighten-2 {
@@ -2145,6 +2150,8 @@
 
 .black-text {
     color: #000000 !important;
+    font-family: quicksand;
+    font-weight: 200;
 }
 
 .white {
@@ -2153,6 +2160,8 @@
 
 .white-text {
     color: #FFFFFF !important;
+    font-family: quicksand;
+    font-weight: 200;
 }
 
 .transparent {
@@ -2975,7 +2984,7 @@ Media Query Classes
 footer.page-footer {
     margin-top: 20px;
     padding-top: 20px;
-    background-color: #c3a115;
+    background-color: black;
 }
 
 footer.page-footer .footer-copyright {
@@ -2984,6 +2993,8 @@ footer.page-footer .footer-copyright {
     line-height: 50px;
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(51, 51, 51, 0.08);
+     font-family: quicksand;
+     font-weight: 200;
 }
 
 table, th, td {
@@ -3518,6 +3529,8 @@ input[type=range] + .thumb {
     margin-left: auto;
     left: auto;
     right: auto;
+     font-family: quicksand;
+     font-weight: 200;
 }
 
 .row .col.s5 {
@@ -4088,7 +4101,7 @@ input[type=range] + .thumb {
 
 nav {
     color: #fff;
-    background-color: #c3a115;
+    background-color: black;
     width: 100%;
     height: 56px;
     line-height: 56px;
@@ -4139,6 +4152,8 @@ nav .brand-logo {
     padding: 0;
     white-space: nowrap;
     left: 5%;
+    font-family: quicksand;
+    font-weight: 200;
 }
 
 nav .brand-logo.center {
@@ -4194,6 +4209,8 @@ nav ul a {
     display: inline-block;
     padding: 0 15px;
     cursor: pointer;
+    font-family: quicksand;
+    font-weight: 200;
 }
 
 nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
@@ -5607,6 +5624,7 @@ input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #26a69a;
     box-shadow: 0 1px 0 0 #26a69a;
+
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -8191,6 +8209,11 @@ $DEFAULT-TIME-PICKER
 .push {
     margin-bottom: 10%;
     margin-top: 10%;
+    font-family: quicksand;
+    font-weight: 200;
+
+
+
 }
 
 div.contente {
@@ -8229,3 +8252,37 @@ body {
     background-size: 100% 100%;
     
 }
+
+.img1 {
+    margin-top: 75px;
+    width: 25%;
+    margin-left: 50px;
+}
+
+
+.img2 {
+     width: 25%;
+    margin-left: 50px;
+}
+
+.img3 {
+     width: 25%;
+ margin-left: 50px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
