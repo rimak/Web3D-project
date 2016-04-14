@@ -1,27 +1,27 @@
 <?php
 
-if( !$_POST['mail'] ){
+if( !$_POST['name'] ){
     echo "Veuillez rentrer une adresse mail valide";
 } if( !$_POST['pwd'] ){
-    echo "Veuillez rentrer un mot de passe valide"
+    echo "Veuillez rentrer un mot de passe valide";
 } else {}
 $algo = 'sha512';
-$email = (string) $_POST['mail'];
+$name = (string) $_POST['name'];
 $password = (string) $_POST['pwd'];
 $password = (string) hash( (string)$algo, (string)$password );
 
 
 
-$sql = "SELECT * FROM user WHERE pwd LIKE '".$password."' AND mail LIKE '".$email."';";
+$sql = "SELECT * FROM user WHERE pwd LIKE '".$password."' AND mail LIKE '".$name."';";
 
 
-$stmt=$conn->prepare( $sql );
+$stmt=$pdo->prepare( $sql );
 $stmt->execute();
 $row = $stmt->fetch();
 
 if( !empty($row) ) {
     session_start();
-    $_SESSION['email'] = $email;
+    $_SESSION['name'] = $name;
     $_SESSION['id'] = $sId;
 
     header('location: http://localhost/webook/profile.php?id='.$row['id']);
