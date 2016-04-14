@@ -8263,6 +8263,9 @@ article {
 .modal-content.valign-wrapper {
     text-align: center;
 }
+.center.promo.promo-example {
+    background-color: rgba(224, 224, 32, 0.5);
+}
 
 
 
