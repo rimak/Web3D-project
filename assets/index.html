@@ -90,17 +90,17 @@
         </nav>
         <div id="modal1" class="modal modal-fixed-footer">
             <div class="modal-content valign-wrapper">
-                <h4 class="valign"> Connection</h4>
+                <h4 class="valign">SE CONNECTER</h4>
                 <div class="container push">
-                    <form class="col s12" valign>
+                    <form id='login' action='../session.php' method='post' class="col s12" >
                         <div class="input-field col s6">
-                            <input id="user" type="text" class="validate">
-                            <label for="user">Nom de l'utilisateur</label>
+                            <input id="name" type="text" name="name" class="validate">
+                            <label for="name">Nom utilisateur</label>
                         </div>
 
                         <div class="input-field col s6">
-                            <input id="password" type="password" class="validate">
-                            <label for="password">Mot de passe</label>
+                            <input id="pwd" type="password" name='pwd' class="validate">
+                            <label for="pwd">Mot de passe</label>
                         </div>
                     </form>
                 </div>
