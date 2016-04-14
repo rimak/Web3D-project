@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Mer 13 Avril 2016 à 21:47
+-- Généré le :  Jeu 14 Avril 2016 à 16:06
 -- Version du serveur :  5.5.42
 -- Version de PHP :  5.6.10
 
@@ -17,116 +17,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `achievements`
---
-
-CREATE TABLE `achievements` (
-  `id` int(11) unsigned NOT NULL,
-  `a_user_id` int(11) unsigned NOT NULL,
-  `name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `descr` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Contenu de la table `achievements`
---
-
-INSERT INTO `achievements` (`id`, `a_user_id`, `name`, `descr`, `img`) VALUES
-(1, 1, 'testAchiev', 'testAchiev', 'noIMG');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(10) unsigned NOT NULL,
-  `name` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `pwd` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `mail` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `score_id` int(11) unsigned NOT NULL,
-  `u_achievement_id` int(11) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Contenu de la table `user`
---
-
-INSERT INTO `user` (`id`, `name`, `pwd`, `mail`, `score_id`, `u_achievement_id`) VALUES
-(1, 'test', 'test', 'test@mail.com', 1, 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `userAchiev`
---
-
-CREATE TABLE `userAchiev` (
-  `id` int(11) unsigned NOT NULL,
-  `user_id` int(11) unsigned NOT NULL,
-  `completion_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `achiev_id` int(11) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Contenu de la table `userAchiev`
---
-
-INSERT INTO `userAchiev` (`id`, `user_id`, `completion_date`, `achiev_id`) VALUES
-(1, 1, '2016-04-12 22:00:00', 1);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `userScore`
 --
 
 CREATE TABLE `userScore` (
   `id` int(11) unsigned NOT NULL,
   `u_score_id` int(11) unsigned NOT NULL,
-  `score` int(11) unsigned NOT NULL DEFAULT '0',
-  `score_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `deaths` int(11) unsigned NOT NULL,
-  `time` int(11) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `score` int(11) unsigned DEFAULT '0',
+  `best_time_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deaths` int(11) unsigned DEFAULT '0',
+  `time` int(11) unsigned DEFAULT '0',
+  `lifetime` int(10) unsigned NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `userScore`
 --
 
-INSERT INTO `userScore` (`id`, `u_score_id`, `score`, `score_date`, `deaths`, `time`) VALUES
-(1, 1, 100000000, '0000-00-00 00:00:00', 0, 0),
-(2, 1, 1000000, '2016-04-12 22:00:00', 0, 0);
+INSERT INTO `userScore` (`id`, `u_score_id`, `score`, `best_time_date`, `deaths`, `time`, `lifetime`) VALUES
+(4, 21, 3000, '2016-04-14 06:00:00', 21, 90, 1200),
+(11, 29, 0, '0000-00-00 00:00:00', 0, 0, 0),
+(12, 30, 0, '2016-04-14 14:05:33', 0, 0, 0);
 
 --
 -- Index pour les tables exportées
 --
-
---
--- Index pour la table `achievements`
---
-ALTER TABLE `achievements`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `a_user_id` (`a_user_id`);
-
---
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `u_achievement_id` (`u_achievement_id`),
-  ADD KEY `score_id` (`score_id`);
-
---
--- Index pour la table `userAchiev`
---
-ALTER TABLE `userAchiev`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `achiev_id` (`achiev_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `user_id_2` (`user_id`);
 
 --
 -- Index pour la table `userScore`
@@ -140,22 +55,7 @@ ALTER TABLE `userScore`
 --
 
 --
--- AUTO_INCREMENT pour la table `achievements`
---
-ALTER TABLE `achievements`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
---
--- AUTO_INCREMENT pour la table `userAchiev`
---
-ALTER TABLE `userAchiev`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT pour la table `userScore`
 --
 ALTER TABLE `userScore`
-  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
