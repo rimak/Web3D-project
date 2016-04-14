@@ -8260,6 +8260,10 @@ article {
 .footer-copyright {
     border-top: 2px solid white;
 }
+.modal-content.valign-wrapper {
+    text-align: center;
+}
+
 
 
 
