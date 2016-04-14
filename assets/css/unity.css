@@ -8261,7 +8261,7 @@ article {
     border-top: 2px solid white;
 }
 .modal-content.valign-wrapper {
-    text-align: center;
+    text-align: left;
 }
 .center.promo.promo-example {
     background-color: rgba(224, 224, 32, 0.5);

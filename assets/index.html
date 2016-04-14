@@ -64,11 +64,10 @@
                     }
                 });
                 u.initPlugin(jQuery("#unityPlayer")[0], "../bizz.unity3d");
-                console.log(u.getUnity().sendMessage());
-                console.log(u.initPlugin);
             });
             -->
         </script>
+        <script src="js/modvisbility.js"></script>
     </head>
 
     <body>
@@ -89,24 +88,62 @@
             </div>
         </nav>
         <div id="modal1" class="modal modal-fixed-footer">
-            <div class="modal-content valign-wrapper">
+            <div id="mod" class="modal-content valign-wrapper">
                 <h4 class="valign">SE CONNECTER</h4>
                 <div class="container push">
-                    <form id='login' action='../session.php' method='post' class="col s12" >
-                        <div class="input-field col s6">
+                    <form action='../session.php' method='post' class="col s12" >
+                        <div class="input-field col s12">
                             <input id="name" type="text" name="name" class="validate">
                             <label for="name">Nom utilisateur</label>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
+                            <input id="pwd" type="password" name='pwd' class="validate">
+                            <label for="pwd">Mot de passe</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <a id="start" class="waves-effect waves-light btn">S'inscrire</a>
+                        </div>
+                    </form>
+                    <h4 id="appear" class="valign" style="visibility : hidden;">S'inscrire</h4>
+                    <form id='appear2' style="visibility : hidden;" action='../session.php' method='post' class="col s12" >
+                        <div class="input-field col s12">
+                            <input id="name" type="text" name="name" class="validate">
+                            <label for="name">Nom utilisateur</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="mail" type="text" name='mail' class="validate">
+                            <label for="mail">E-mail</label>
+                        </div>
+                        <div class="input-field col s12">
                             <input id="pwd" type="password" name='pwd' class="validate">
                             <label for="pwd">Mot de passe</label>
                         </div>
                     </form>
+                    <script> 
+                        $(document).ready(function(){
+                            var $start = $('#mod');
+                            var $appear = $('#appear');
+                            var $appear2 = $('#appear2');
+                            var $return = $('#return');
+
+                            $start.click(function(){
+                                $start.css("visibility", "hidden");
+                                $appear.css("visibility", "visible");
+                                $appear2.css("visibility", "visible");
+                            });
+                            $return.click(function(){
+                                $appear.css("visibility", "hidden");
+                                $appear2.css("visibility", "hidden");
+                                $start.css("visibility", "visible");
+                            });
+                            
+                        });
+                    </script>
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Retour</a>
+                <a id="return" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Retour</a>
             </div>
         </div>
         <section class="container">
