@@ -6,9 +6,9 @@
  * Time: 12:55
  */
 include_once '../pdo.php';
-include_once '../model.php';
 include_once '../controller.php';
-include_once '../session.php';
+/*include_once '../model.php';
+include_once '../session.php';*/
 /*include_once '../model.php';*/
 ?>
 <!DOCTYPE html>
@@ -154,11 +154,11 @@ if( !user_connected() ) { ?>
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Retour</a>
         </div>
     </div>
-<?php }if( user_connected() ) { ?>
+<?php } if( user_connected() ) { ?>
     <div class="nav"><a href="<?= "./profile.php?id=".$_SESSION['id'] ?>">Profil | </a>
 
         <a href="<?= './profile.php?id='.$randId ?>">Profil aléatoire |</a>
 
         <a href="./profile_update.php">Modifier mon profil</a></div>
-    <div class="nav2"><a href="<?= "functions/session_destroy.php" ?>">Déconnexion</a></div>
+    <div class="nav2"><a href="<?= "" ?>">Déconnexion</a></div>
 <?php } ?>
