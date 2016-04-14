@@ -4,11 +4,11 @@
 function getInfo( PDO $pdo, $id ){
     $sql = "SELECT u.*, uA.*, a.*, uS.*
 FROM user as u
-INNER JOIN user_achiev as uA
+INNER JOIN userAchiev as uA
 ON u.u_achievement_id = uA.user_id
 INNER JOIN achievements as a
 ON uA.user_id = a.a_user_id
-INNER JOIN user_score as uS
+INNER JOIN userScore as uS
 ON u.score_id = uS.u_score_id
 WHERE u.id = $id;";
     $stmt = $pdo->prepare($sql);
@@ -25,7 +25,7 @@ WHERE u.id = $id;";
 function findAchievements ( PDO $pdo, $id ){
     $sql = "SELECT u.*, uA.*, a.*
 FROM user as u
-INNER JOIN user_achiev as uA
+INNER JOIN userAchiev as uA
 ON u.u_achievement_id = uA.user_id
 INNER JOIN achievements as a
 ON uA.user_id = a.a_user_id
@@ -40,10 +40,11 @@ WHERE u.id = $id;";
 }
 
 // update user informations
-function updatePlayer( PDO $pdo )
+function updatePlayer( PDO $pdo, $id )
 {
-    $sql = "UPDATE user (`name`, `pwd`, `mail`)
-SET ':name', ':mail', ':pwd';";
+    $sql = "UPDATE user
+SET `name` = ':name', `pwd` = ':pwd', `mail` =  ':mail'
+WHERE `id` = $id;";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam( ':name', $_POST['name'], PDO::PARAM_STR );
     $stmt->bindParam( ':pwd', $_POST['pwd'], PDO::PARAM_STR );
@@ -55,9 +56,10 @@ SET ':name', ':mail', ':pwd';";
 function createPlayer( PDO $pdo ){
     // insert new user basic infos
     $sql = "INSERT INTO user( `name`, `pwd`, `mail` )
-VALUES ':name', ':pwd', ':mail';";
+VALUES (':name', ':pwd', ':mail');";
+    $hash_pwd = ($_POST['pwd']);
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam( ':name', $_POST['name'], PDO::PARAM_STR );
+    $stmt->bindParam( ':name', $hash_pwd, PDO::PARAM_STR );
     $stmt->bindParam( ':pwd', $_POST['pwd'], PDO::PARAM_STR );
     $stmt->bindParam( ':mail', $_POST['mail'], PDO::PARAM_STR );
     $stmt->execute();
@@ -70,22 +72,48 @@ VALUES ':name', ':pwd', ':mail';";
 
     // give id to all childs
     $sql = "INSERT INTO user( `u_achievement_id`, `score_id` )
-VALUES :id1, :id2;";
+VALUES (':id1', ':id2');";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam( ':id1', $id, PDO::PARAM_INT );
     $stmt->bindParam( ':id2', $id, PDO::PARAM_INT );
     $stmt->execute();
 
-    $sql = "INSERT INTO userScore( `u_score_id`);
-VALUES :id;";
+    $sql = "INSERT INTO userScore( `u_score_id`)
+VALUES (':id');";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam( ':id', $id, PDO::PARAM_INT );
     $stmt->execute();
 
-    $sql = "INSERT INTO userAchiev( `user_id`);
-VALUES :id;";
+    $sql = "INSERT INTO userAchiev( `user_id`)
+VALUES (':id');";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam( ':id', $id, PDO::PARAM_INT );
+    $stmt->execute();
+}
+
+function createUser( PDO $pdo ){
+    $pwd = hash("sha512", $_POST["pwd"]);
+    $sql = "INSERT INTO user( `name`, `pwd`, `mail` )
+VALUES (':name', ':pwd', ':mail');
+
+SELECT @userid := `id`
+FROM user
+WHERE `id` = LAST_INSERT_ID();
+
+UPDATE user
+SET `u_achievement_id` = @userid, `score_id` = @userid
+WHERE `id` = @userid;
+
+INSERT INTO userScore( `u_score_id`)
+VALUES (@userid);
+
+INSERT INTO userAchiev( `user_id`)
+VALUES (@userid);";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':name', $_POST['name']);
+    $stmt->bindParam(':pwd', $pwd);
+    $stmt->bindParam(':mail', $_POST['mail']);
     $stmt->execute();
 }
 
@@ -94,12 +122,17 @@ function updateScore( PDO $pdo, $id ){
     $str_json = $_POST['JSON'];
     $score = json_decode($str_json);
 
-    $sql = "UPDATE user_score (`score`)
-SET $str_json
+
+    $sql = "UPDATE userScore
+SET `score` = ':score')
 WHERE `id` = :id;";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam( ':score', $score, PDO::PARAM_STR );
     $stmt->bindParam( ':id', $id, PDO::PARAM_INT );
     $stmt->execute();
+
+}
+
+function newSuccess(){
 
 }
