@@ -88,7 +88,7 @@
             </div>
         </nav>
         <div id="modal1" class="modal modal-fixed-footer">
-            <div id="mod" class="modal-content valign-wrapper">
+            <div id="mod1" class="modal-content valign-wrapper">
                 <h4 class="valign">SE CONNECTER</h4>
                 <div class="container push">
                     <form action='../session.php' method='post' class="col s12" >
@@ -123,12 +123,14 @@
                     <script> 
                         $(document).ready(function(){
                             var $start = $('#mod');
+                            var $stop = $('#mod1');
                             var $appear = $('#appear');
                             var $appear2 = $('#appear2');
                             var $return = $('#return');
 
                             $start.click(function(){
                                 $start.css("visibility", "hidden");
+                                $stop.css("visibility", "hidden");
                                 $appear.css("visibility", "visible");
                                 $appear2.css("visibility", "visible");
                             });
@@ -136,6 +138,7 @@
                                 $appear.css("visibility", "hidden");
                                 $appear2.css("visibility", "hidden");
                                 $start.css("visibility", "visible");
+                                $stop.css("visibility", "visible");
                             });
                             
                         });

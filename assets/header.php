@@ -117,7 +117,10 @@ if( !user_connected() ) { ?>
                         <label for="pwd">Mot de passe</label>
                     </div>
                     <div class="input-field col s12">
-                        <a id="start" class="waves-effect waves-light btn">S'inscrire</a>
+                        <a id="" class="waves-effect waves-light btn">Connection</a>
+                    </div>
+                    <div class="input-field col s12">
+                        <a id="mod" class="waves-effect waves-light btn">S'inscrire</a>
                     </div>
                 </form>
                 <h4 id="appear" class="valign" style="visibility : hidden;">S'inscrire</h4>
