@@ -5,7 +5,6 @@
  * Date: 14/04/2016
  * Time: 12:44
  */
-include_once './header.php';
 ?>
         <section class="container">
             <div class="push">

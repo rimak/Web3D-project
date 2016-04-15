@@ -24,7 +24,7 @@ if( !empty($row) ) {
     $_SESSION['name'] = $name;
     $_SESSION['id'] = $sId;
 
-    header('location: /index.php');
+    header('location: http://localhost/webook/profile.php?id='.$row['id']);
 } else {
-    header('location: /index.php');
+    header('location: http://localhost/webook/content.php?error=notFound');
 }

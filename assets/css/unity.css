@@ -8249,18 +8249,6 @@ body {
     background-repeat:no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
-<<<<<<< HEAD
-}
-
-.score{
-    border: 1px solid black;
-    display: inline-block;
-    padding: 60px;
-    margin-top: 50px;
-    margin-bottom: 500px;
-}
-
-=======
 
 }
 .col.l6.m12.s12 {
@@ -8280,7 +8268,6 @@ article {
 }
 
 
->>>>>>> c4271bd93735ef54875b894a23dc542e1f10fa20
 
 
 

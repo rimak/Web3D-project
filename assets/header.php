@@ -6,9 +6,9 @@
  * Time: 12:55
  */
 include_once '../pdo.php';
+include_once '../model.php';
 include_once '../controller.php';
-/*include_once '../model.php';
-include_once '../session.php';*/
+include_once '../session.php';
 /*include_once '../model.php';*/
 ?>
 <!DOCTYPE html>
@@ -117,10 +117,7 @@ if( !user_connected() ) { ?>
                         <label for="pwd">Mot de passe</label>
                     </div>
                     <div class="input-field col s12">
-                        <a id="" class="waves-effect waves-light btn">Connection</a>
-                    </div>
-                    <div class="input-field col s12">
-                        <a id="mod" class="waves-effect waves-light btn">S'inscrire</a>
+                        <a id="start" class="waves-effect waves-light btn">S'inscrire</a>
                     </div>
                 </form>
                 <h4 id="appear" class="valign" style="visibility : hidden;">S'inscrire</h4>
@@ -157,11 +154,11 @@ if( !user_connected() ) { ?>
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Retour</a>
         </div>
     </div>
-<?php } if( user_connected() ) { ?>
+<?php }if( user_connected() ) { ?>
     <div class="nav"><a href="<?= "./profile.php?id=".$_SESSION['id'] ?>">Profil | </a>
 
         <a href="<?= './profile.php?id='.$randId ?>">Profil aléatoire |</a>
 
         <a href="./profile_update.php">Modifier mon profil</a></div>
-    <div class="nav2"><a href="<?= "" ?>">Déconnexion</a></div>
+    <div class="nav2"><a href="<?= "functions/session_destroy.php" ?>">Déconnexion</a></div>
 <?php } ?>
