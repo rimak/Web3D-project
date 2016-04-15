@@ -12,19 +12,34 @@ $password = (string) hash( (string)$algo, (string)$password );
 
 
 
-$sql = "SELECT * FROM user WHERE pwd LIKE '".$password."' AND mail LIKE '".$name."';";
-
-
-$stmt=$pdo->prepare( $sql );
+$pwd = hash("sha512", $_POST["pwd"]);
+$sql = "INSERT INTO user( `name`, `pwd`, `mail` )
+VALUES (':name', ':pwd', ':mail');
+SELECT @userid := `id`
+FROM user
+WHERE `id` = LAST_INSERT_ID();
+UPDATE user
+SET `u_achievement_id` = @userid, `score_id` = @userid
+WHERE `id` = @userid;
+INSERT INTO userScore( `u_score_id`)
+VALUES (@userid);
+INSERT INTO userAchiev( `user_id`)
+VALUES (@userid);";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':name', $_POST['name']);
+$stmt->bindParam(':pwd', $pwd);
+$stmt->bindParam(':mail', $_POST['mail']);
 $stmt->execute();
-$row = $stmt->fetch();
 
-if( !empty($row) ) {
+if ($login == '') {
+    header('location: index.php?error=1');
+}elseif ($password = '' ){
+    header('location : index.php?error=2&password'.$password);
+}else {
     session_start();
-    $_SESSION['name'] = $name;
-    $_SESSION['id'] = $sId;
+    $_SESSION['login'] = $login;
+    $_SESSION['password'] = $password;
+    $_SESSION['logged'] = true;
 
-    header('location: http://localhost/webook/profile.php?id='.$row['id']);
-} else {
-    header('location: http://localhost/webook/content.php?error=notFound');
+    header('location : profil.php');
 }

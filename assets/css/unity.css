@@ -1020,11 +1020,11 @@
 }
 
 .teal.lighten-1 {
-    background-color: #26a69a !important;
+    background-color: #ffcd00 !important;
 }
 
 .teal-text.text-lighten-1 {
-    color: #26a69a !important;
+    color: #ffcd00 !important;
 }
 
 .teal.darken-1 {
@@ -2152,6 +2152,7 @@
     color: #000000 !important;
     font-family: quicksand;
     font-weight: 200;
+    font-size: 20px;
 }
 
 .white {
@@ -3127,7 +3128,7 @@ td, th {
 }
 
 .collection .collection-item {
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
     line-height: 1.5rem;
     padding: 10px 20px;
     margin: 0;
@@ -3177,7 +3178,7 @@ td, th {
 }
 
 .collection .collection-item.active {
-    background-color: #26a69a;
+    background-color: #ffcd00;
     color: #eafaf9;
 }
 
@@ -3188,7 +3189,7 @@ td, th {
 .collection a.collection-item {
     display: block;
     transition: .25s;
-    color: #26a69a;
+    color: #ffcd00;
 }
 
 .collection a.collection-item:not(.active):hover {
@@ -3211,7 +3212,7 @@ td, th {
 
 .secondary-content {
     float: right;
-    color: #26a69a;
+    color: #ffcd00;
 }
 
 .collapsible .collection {
@@ -3235,7 +3236,7 @@ span.badge.new {
     font-weight: 300;
     font-size: 0.8rem;
     color: #fff;
-    background-color: #26a69a;
+    background-color: #ffcd00;
     border-radius: 2px;
 }
 
@@ -3280,12 +3281,12 @@ nav ul a span.badge {
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: #26a69a;
+    background-color: #ffcd00;
     transition: width .3s linear;
 }
 
 .progress .indeterminate {
-    background-color: #26a69a;
+    background-color: #ffcd00;
 }
 
 .progress .indeterminate:before {
@@ -3415,9 +3416,9 @@ input[type=range] + .thumb {
 }
 
 .center-block {
-    display: block;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 .truncate {
@@ -4684,7 +4685,7 @@ small {
 }
 
 #toast-container {
-    display: block;
+    display: inline-block;
     position: fixed;
     z-index: 10000;
 }
@@ -4920,7 +4921,7 @@ small {
 .btn, .btn-large {
     text-decoration: none;
     color: #fff;
-    background-color: #26a69a;
+    background-color: #ffda44;
     text-align: center;
     letter-spacing: .5px;
     transition: .2s ease-out;
@@ -4928,7 +4929,7 @@ small {
 }
 
 .btn:hover, .btn-large:hover {
-    background-color: #2bbbad;
+    background-color: #ffcd00;
 }
 
 .btn-floating {
@@ -4941,7 +4942,7 @@ small {
     height: 37px;
     line-height: 37px;
     padding: 0;
-    background-color: #26a69a;
+    background-color: #ffcd00;
     border-radius: 50%;
     transition: .3s;
     cursor: pointer;
@@ -4958,7 +4959,7 @@ small {
 }
 
 .btn-floating:hover {
-    background-color: #26a69a;
+    background-color: #ffcd00;
 }
 
 .btn-floating:before {
@@ -4967,7 +4968,7 @@ small {
 
 .btn-floating.btn-large {
     width: 55.5px;
-    height: 55.5px;
+@    height: 55.5px;
 }
 
 .btn-floating.btn-large i {
@@ -5032,9 +5033,10 @@ button.btn-floating {
 
 .btn-flat {
     box-shadow: none;
-    background-color: transparent;
-    color: #343434;
+    background-color: #ffda44;
+    color: white;
     cursor: pointer;
+
 }
 
 .btn-flat.disabled {
@@ -5094,7 +5096,7 @@ button.btn-floating {
 
 .dropdown-content li > a, .dropdown-content li > span {
     font-size: 16px;
-    color: #26a69a;
+    color: #ffcd00;
     display: block;
     line-height: 22px;
     padding: 14px 16px;
@@ -5119,6 +5121,9 @@ button.btn-floating {
 * Released under the MIT license
 * https://github.com/fians/Waves/blob/master/LICENSE
 */
+.waves-effect:hover{
+    background-color: #ffcd00;
+}
 .waves-effect {
     position: relative;
     cursor: pointer;
@@ -5143,7 +5148,7 @@ button.btn-floating {
     margin-top: -10px;
     margin-left: -10px;
     opacity: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0);
     transition: all 0.7s ease-out;
     transition-property: opacity, -webkit-transform;
     transition-property: transform, opacity;
@@ -5242,6 +5247,8 @@ a.waves-effect .waves-ripple {
     overflow-y: auto;
     border-radius: 2px;
     will-change: top, opacity;
+    font-family: quicksand;
+    font-weight: 400;
 }
 
 @media only screen and (max-width: 992px) {
@@ -5549,6 +5556,7 @@ textarea.materialize-textarea {
     box-shadow: none;
     box-sizing: content-box;
     transition: all 0.3s;
+
 }
 
 input:not([type]):disabled, input:not([type])[readonly="readonly"],
@@ -5622,8 +5630,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #26a69a;
-    box-shadow: 0 1px 0 0 #26a69a;
+    border-bottom: 1px solid #ffcd00;
+    box-shadow: 0 1px 0 0 #ffcd00;
 
 }
 
@@ -5640,7 +5648,7 @@ input[type=tel]:focus:not([readonly]) + label,
 input[type=number]:focus:not([readonly]) + label,
 input[type=search]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-    color: #26a69a;
+    color: #ffcd00;
 }
 
 input:not([type]).valid, input:not([type]):focus.valid,
@@ -5807,13 +5815,15 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field label {
-    color: #9e9e9e;
+    color: black;
     position: absolute;
     top: 0.8rem;
     left: 0.75rem;
     font-size: 1rem;
     cursor: text;
     transition: .2s ease-out;
+    font-family: quicksand;
+    font-weight: 400;
 }
 
 .input-field label.active {
@@ -5830,7 +5840,7 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field .prefix.active {
-    color: #26a69a;
+    color: #ffcd00;
 }
 
 .input-field .prefix ~ input,
@@ -5992,12 +6002,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:before,
 [type="radio"].with-gap:checked + label:after {
-    border: 2px solid #26a69a;
+    border: 2px solid #ffcd00;
 }
 
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:after {
-    background-color: #26a69a;
+    background-color: #ffcd00;
     z-index: 0;
 }
 
@@ -6131,8 +6141,8 @@ form p:last-child {
     height: 22px;
     border-top: 2px solid transparent;
     border-left: 2px solid transparent;
-    border-right: 2px solid #26a69a;
-    border-bottom: 2px solid #26a69a;
+    border-right: 2px solid #ffcd00;
+    border-bottom: 2px solid #ffcd00;
     -webkit-transform: rotate(40deg);
     transform: rotate(40deg);
     -webkit-backface-visibility: hidden;
@@ -6154,7 +6164,7 @@ form p:last-child {
     height: 22px;
     border-top: none;
     border-left: none;
-    border-right: 2px solid #26a69a;
+    border-right: 2px solid #ffcd00;
     border-bottom: none;
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
@@ -6223,8 +6233,8 @@ form p:last-child {
     top: 0;
     width: 20px;
     height: 20px;
-    border: 2px solid #26a69a;
-    background-color: #26a69a;
+    border: 2px solid #ffcd00;
+    background-color: #ffcd00;
     z-index: 0;
 }
 
@@ -6236,8 +6246,8 @@ form p:last-child {
 
 [type="checkbox"].filled-in.tabbed:checked:focus + label:after {
     border-radius: 2px;
-    background-color: #26a69a;
-    border-color: #26a69a;
+    background-color: #ffcd00;
+    border-color: #ffcd00;
 }
 
 [type="checkbox"].filled-in:disabled:not(:checked) + label:before {
@@ -6284,7 +6294,7 @@ form p:last-child {
 }
 
 .switch label input[type=checkbox]:checked + .lever:after {
-    background-color: #26a69a;
+    background-color: #ffcd00;
     left: 24px;
 }
 
@@ -6527,7 +6537,7 @@ input[type=range] + .thumb {
     height: 0;
     width: 0;
     border-radius: 50%;
-    background-color: #26a69a;
+    background-color: #ffcd00;
     top: 10px;
     margin-left: -6px;
     -webkit-transform-origin: 50% 50%;
@@ -6540,7 +6550,7 @@ input[type=range] + .thumb .value {
     display: block;
     width: 30px;
     text-align: center;
-    color: #26a69a;
+    color: #ffcd00;
     font-size: 0;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -6573,7 +6583,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 14px;
     width: 14px;
     border-radius: 50%;
-    background-color: #26a69a;
+    background-color: #ffcd00;
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     margin: -5px 0 0 0;
@@ -6601,7 +6611,7 @@ input[type=range]::-moz-range-thumb {
     height: 14px;
     width: 14px;
     border-radius: 50%;
-    background: #26a69a;
+    background: #ffcd00;
     margin-top: -5px;
 }
 
@@ -6636,7 +6646,7 @@ input[type=range]::-ms-thumb {
     height: 14px;
     width: 14px;
     border-radius: 50%;
-    background: #26a69a;
+    background: #ffcd00;
 }
 
 input[type=range]:focus::-ms-fill-lower {
@@ -6757,7 +6767,7 @@ Nav List
 }
 
 .side-nav a.btn-floating:hover {
-    background-color: #26a69a;
+    background-color: #ffcd00;
 }
 
 .drag-target {
@@ -6884,7 +6894,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     width: 100%;
     height: 100%;
     opacity: 0;
-    border-color: #26a69a;
+    border-color: #ffcd00;
 }
 
 .spinner-blue,
@@ -7943,7 +7953,7 @@ CUSTOM MATERIALIZE STYLES
 
 .picker__date-display {
     text-align: center;
-    background-color: #26a69a;
+    background-color: #ffcd00;
     color: #fff;
     padding-bottom: 15px;
     font-weight: 300;
@@ -8006,7 +8016,7 @@ CUSTOM MATERIALIZE STYLES
 }
 
 .picker__day.picker__day--today {
-    color: #26a69a;
+    color: #ffcd00;
 }
 
 .picker__day.picker__day--today.picker__day--selected {
@@ -8023,7 +8033,7 @@ CUSTOM MATERIALIZE STYLES
     border-radius: 50%;
     -webkit-transform: scale(0.9);
     transform: scale(0.9);
-    background-color: #26a69a;
+    background-color: #ffcd00;
     color: #ffffff;
 }
 
@@ -8041,7 +8051,7 @@ CUSTOM MATERIALIZE STYLES
 .picker__close, .picker__today {
     font-size: 1.1rem;
     padding: 0 1rem;
-    color: #26a69a;
+    color: #ffcd00;
 }
 
 .picker__nav--prev:before,
@@ -8209,7 +8219,7 @@ $DEFAULT-TIME-PICKER
 .push {
     margin-bottom: 10%;
     margin-top: 10%;
-    font-family: quicksand;
+    font-family: Quicksand;
     font-weight: 200;
 
 
@@ -8258,17 +8268,21 @@ article {
     margin-bottom: 7%;
 }
 .footer-copyright {
-    border-top: 2px solid white;
+    border-top: 1px solid white;
 }
 .modal-content.valign-wrapper {
     text-align: left;
 }
 .center.promo.promo-example {
-    background-color: rgba(224, 224, 32, 0.5);
+    background-color: rgba(255, 218, 68, 0.23);
+    padding: 20px;
 }
-
-
-
+h1.center {
+    background-color: rgba(0,0,0, 0.5);
+}
+h2.center {
+    background-color: rgba(0,0,0, 0.5);
+}
 
 
 
